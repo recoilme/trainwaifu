@@ -164,7 +164,7 @@ A set of diverse prompt will help determine whether the model is collapsing as i
 
 If you wish to enable evaluations to score the model's performance, see [this document](/documentation/evaluation/CLIP_SCORES.md) for information on configuring and interpreting CLIP scores.
 
-#### Wifu time schedule shifting
+#### Waifu time schedule shifting
 
 Flow-matching models such as Waifu, Sana, and SD3 have a property called "shift" that allows us to shift the trained portion of the timestep schedule using a simple decimal value.
 

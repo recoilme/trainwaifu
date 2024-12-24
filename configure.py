@@ -23,6 +23,7 @@ model_classes = {
         "sd3",
         "legacy",
         "sana",
+        "waifu",
     ],
     "lora": ["flux", "sdxl", "kolors", "sd3", "legacy"],
     "controlnet": ["sdxl", "legacy"],
@@ -37,6 +38,7 @@ default_models = {
     "sd3": "stabilityai/stable-diffusion-3.5-large",
     "legacy": "stabilityai/stable-diffusion-2-1-base",
     "sana": "Efficient-Large-Model/Sana_1600M_1024px_diffusers",
+    "waifu": "AiArtLab/waifu-2b",
 }
 
 default_cfg = {
@@ -47,6 +49,7 @@ default_cfg = {
     "terminus": 8.0,
     "sd3": 5.0,
     "sana": 3.8,
+    "waifu": 3.8,
 }
 
 model_labels = {
@@ -58,6 +61,7 @@ model_labels = {
     "sdxl": "Stable Diffusion XL",
     "legacy": "Stable Diffusion",
     "sana": "Sana",
+    "waifu": "Waifu",
 }
 
 lora_ranks = [1, 16, 64, 128, 256]

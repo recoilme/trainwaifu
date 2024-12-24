@@ -85,6 +85,17 @@ def get_tokenizers(args):
                 revision=args.revision,
                 use_fast=False,
             )
+        elif args.model_family == "waifu":
+            from transformers import AutoTokenizer
+
+            tokenizer_cls = AutoTokenizer
+            is_t5_model = False
+            tokenizer_1 = tokenizer_cls.from_pretrained(
+                args.pretrained_model_name_or_path,
+                subfolder="tokenizer",
+                revision=args.revision,
+                use_fast=False,
+            )
         elif args.model_family.lower() == "kolors":
             from diffusers.pipelines.kolors.tokenizer import ChatGLMTokenizer
 
