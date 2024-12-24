@@ -48,6 +48,10 @@ def import_model_class_from_model_name_or_path(
         from transformers import Gemma2Model
 
         return Gemma2Model
+    elif model_class == "MexmaSigLIP":
+        from transformers import AutoTokenizer
+
+        return AutoTokenizer
     else:
         raise ValueError(f"{model_class} is not supported.")
 
@@ -87,7 +91,7 @@ def get_tokenizers(args):
             )
         elif args.model_family == "waifu":
             from transformers import  AutoTokenizer
-            
+
             text_encoder_model_path = "visheratin/mexma-siglip"
             tokenizer_1 = AutoTokenizer.from_pretrained(text_encoder_model_path)
             #text_encoder = AutoModel.from_pretrained(text_encoder_model_path, torch_dtype=torch.bfloat16, trust_remote_code=True)
