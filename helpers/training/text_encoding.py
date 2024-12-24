@@ -89,20 +89,15 @@ def get_tokenizers(args):
                 revision=args.revision,
                 use_fast=False,
             )
-        elif args.model_family == "waifu":
-            from transformers import  AutoTokenizer
+        elif args.model_family.lower()  == "waifu":
 
-            #text_encoder_model_path = "visheratin/mexma-siglip"
-            #tokenizer_1 = AutoTokenizer.from_pretrained(text_encoder_model_path, trust_remote_code=True)
-            #text_encoder = AutoModel.from_pretrained(text_encoder_model_path, torch_dtype=torch.bfloat16, trust_remote_code=True)
-            tokenizer_cls = AutoTokenizer
-            is_t5_model = False
-            tokenizer_1 = tokenizer_cls.from_pretrained(
-                args.pretrained_model_name_or_path,
-                subfolder="tokenizer",
-                revision=args.revision,
-                use_fast=False,
-            )
+            from transformers import AutoModel, AutoTokenizer
+            import torch
+
+            text_encoder_model_path = "visheratin/mexma-siglip"
+            tokenizer_1 = AutoTokenizer.from_pretrained(text_encoder_model_path)
+            text_encoder = AutoModel.from_pretrained(text_encoder_model_path, torch_dtype=torch.bfloat16, trust_remote_code=True)
+            del text_encoder.vision_model
         elif args.model_family.lower() == "kolors":
             from diffusers.pipelines.kolors.tokenizer import ChatGLMTokenizer
 
