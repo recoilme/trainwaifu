@@ -222,6 +222,9 @@ def determine_te_path_subfolder(args):
         )
         # Google's version of the T5 XXL model doesn't have a subfolder :()
         text_encoder_subfolder = "text_encoder"
+    elif args.model_family.lower() == "waifu":
+        text_encoder_path = args.pretrained_model_name_or_path
+        text_encoder_subfolder = "text_encoder"
     else:
         # sdxl and sd3 use the sd 1.5 clip-L/14 as number one.
         # sd2.x uses openclip vit-H/14
