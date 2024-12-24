@@ -93,7 +93,7 @@ def get_tokenizers(args):
             from transformers import  AutoTokenizer
 
             text_encoder_model_path = "visheratin/mexma-siglip"
-            tokenizer_1 = AutoTokenizer.from_pretrained(text_encoder_model_path)
+            tokenizer_1 = AutoTokenizer.from_pretrained(text_encoder_model_path, trust_remote_code=True)
             #text_encoder = AutoModel.from_pretrained(text_encoder_model_path, torch_dtype=torch.bfloat16, trust_remote_code=True)
             #tokenizer_cls = AutoTokenizer
             #is_t5_model = False
