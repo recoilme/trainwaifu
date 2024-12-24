@@ -58,6 +58,17 @@ def import_model_class_from_model_name_or_path(
 
 def get_tokenizers(args):
     tokenizer_1, tokenizer_2, tokenizer_3 = None, None, None
+    if args.model_family.lower()  == "waifu":
+        print("waifu tokenizer")
+        from transformers import AutoModel, AutoTokenizer
+        import torch
+    
+        text_encoder_model_path = "visheratin/mexma-siglip"
+        tokenizer_1 = AutoTokenizer.from_pretrained(text_encoder_model_path, trust_remote_code=True)
+        text_encoder = AutoModel.from_pretrained(text_encoder_model_path, torch_dtype=torch.bfloat16, trust_remote_code=True)
+        del text_encoder.vision_model
+        return tokenizer_1, tokenizer_2, tokenizer_3
+        
     try:
         if args.model_family.lower() == "smoldit":
             from transformers import AutoTokenizer
@@ -89,15 +100,6 @@ def get_tokenizers(args):
                 revision=args.revision,
                 use_fast=False,
             )
-        elif args.model_family.lower()  == "waifu":
-
-            from transformers import AutoModel, AutoTokenizer
-            import torch
-
-            text_encoder_model_path = "visheratin/mexma-siglip"
-            tokenizer_1 = AutoTokenizer.from_pretrained(text_encoder_model_path, trust_remote_code=True)
-            text_encoder = AutoModel.from_pretrained(text_encoder_model_path, torch_dtype=torch.bfloat16, trust_remote_code=True)
-            del text_encoder.vision_model
         elif args.model_family.lower() == "kolors":
             from diffusers.pipelines.kolors.tokenizer import ChatGLMTokenizer
 
@@ -243,6 +245,18 @@ def load_tes(
     text_encoder_1, text_encoder_2, text_encoder_3 = None, None, None
     text_encoder_variant = args.variant
 
+    if args.model_family.lower()  == "waifu":
+        print("waifu TE")
+        from transformers import AutoModel, AutoTokenizer
+        import torch
+    
+        text_encoder_model_path = "visheratin/mexma-siglip"
+        tokenizer_1 = AutoTokenizer.from_pretrained(text_encoder_model_path, trust_remote_code=True)
+        text_encoder_1 = AutoModel.from_pretrained(text_encoder_model_path, torch_dtype=torch.bfloat16, trust_remote_code=True)
+        del text_encoder_1.vision_model
+        text_encoder_variant = "bf16"
+        return text_encoder_variant, text_encoder_1, None, None
+
     if tokenizer_1 is not None and not args.model_family == "smoldit":
         if args.model_family.lower() == "pixart_sigma":
             logger.info(
@@ -260,6 +274,10 @@ def load_tes(
         elif args.model_family.lower() == "sana":
             logger.info(
                 f"Loading Gemma2 language model from {text_encoder_path}/{text_encoder_subfolder}.."
+            )
+        elif args.model_family.lower() == "waifu":
+            logger.info(
+                f"Loading waifu mexmasiglip language model from {text_encoder_path}/{text_encoder_subfolder}.."
             )
         else:
             logger.info(
