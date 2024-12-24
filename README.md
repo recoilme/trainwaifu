@@ -1,6 +1,7 @@
-# SimpleTuner 💹
+# Train Waifu fork of SimpleTuner
 
-## Train Waifu fork
+
+# SimpleTuner 💹
 
 
 > ⚠️ **Warning**: The scripts in this repository have the potential to damage your training data. Always maintain backups before proceeding.
@@ -15,6 +16,7 @@
   - [Flux](#flux1)
   - [PixArt Sigma](#pixart-sigma)
   - [NVLabs Sana](#nvlabs-sana)
+  - [AiArtLab Waifu](#aiartlab-waifu)
   - [Stable Diffusion 2.0/2.1](#stable-diffusion-20--21)
   - [Stable Diffusion 3.0](#stable-diffusion-3)
   - [Kwai Kolors](#kwai-kolors)
@@ -100,6 +102,20 @@ This is a lightweight, fun, and fast model that makes getting into model trainin
 - ControlNet training is not yet supported
 
 See the [NVLabs Sana Quickstart](/documentation/quickstart/SANA.md) guide to start training.
+
+### AiArtLab Waifu
+
+SimpleTuner has preliminary training integration with AiArtLab Waifu.
+
+This is a lightweight, fun, and fast model that makes getting into model training highly accessible to a wider audience.
+
+- Full training is not supported.
+- LyCORIS is not supported.
+- Text encoder training is not supported.
+- PEFT Standard LoRA is not supported.
+- ControlNet training is not yet supported
+
+See the [AiArtLab Waifu Quickstart](/documentation/quickstart/WAIFU.md) guide to start training.
 
 ### Stable Diffusion 3
 
