@@ -147,6 +147,17 @@ def load_diffusion_model(args, weight_dtype):
             subfolder=determine_subfolder(args.pretrained_transformer_subfolder),
             **pretrained_load_args,
         )
+    elif args.model_family == "waifu":
+        from diffusers import SanaTransformer2DModel
+
+        logger.info("Loading Waifu flow-matching diffusion transformer..")
+        pretrained_load_args["variant"] = "fp16"
+        transformer = SanaTransformer2DModel.from_pretrained(
+            args.pretrained_transformer_model_name_or_path
+            or args.pretrained_model_name_or_path,
+            subfolder=determine_subfolder(args.pretrained_transformer_subfolder),
+            **pretrained_load_args,
+        )
     else:
         from diffusers import UNet2DConditionModel
 

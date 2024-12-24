@@ -256,6 +256,7 @@ def prepare_validation_prompt_list(args, embed_cache):
             model_type == "pixart_sigma"
             or model_type == "smoldit"
             or model_type == "sana"
+            or model_type == "waifu"
         ):
             # we use the legacy encoder but we return no pooled embeds.
             validation_negative_prompt_embeds = (

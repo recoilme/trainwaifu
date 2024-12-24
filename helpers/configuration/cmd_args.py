@@ -430,7 +430,7 @@ def get_argument_parser():
     parser.add_argument(
         "--pretrained_vae_model_name_or_path",
         type=str,
-        default="madebyollin/sdxl-vae-fp16-fix",
+        default="AuraDiffusion/16ch-vae",
         help="Path to an improved VAE to stabilize training. For more details check out: https://github.com/huggingface/diffusers/pull/4038.",
     )
     parser.add_argument(
