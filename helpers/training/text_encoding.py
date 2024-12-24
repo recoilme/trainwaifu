@@ -150,7 +150,7 @@ def get_tokenizers(args):
 
     from transformers import T5TokenizerFast
 
-    if args.model_family not in ["pixart_sigma", "kolors", "sana"]:
+    if args.model_family not in ["pixart_sigma", "kolors", "sana", "waifu"]:
         try:
             tokenizer_2_cls = CLIPTokenizer
             if args.model_family.lower() == "flux":
