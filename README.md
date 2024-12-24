@@ -1,8 +1,8 @@
 # Train Waifu fork of SimpleTuner
 
+- [AiArtLab Waifu](#aiartlab-waifu)
 
 # SimpleTuner 💹
-
 
 > ⚠️ **Warning**: The scripts in this repository have the potential to damage your training data. Always maintain backups before proceeding.
 
