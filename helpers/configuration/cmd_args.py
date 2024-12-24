@@ -95,6 +95,7 @@ def get_argument_parser():
             "smoldit",
             "sdxl",
             "legacy",
+            "waifu",
         ],
         default=None,
         required=True,
