@@ -2177,6 +2177,16 @@ class Trainer:
                         added_cond_kwargs={"resolution": None, "aspect_ratio": None},
                         return_dict=False,
                     )[0]
+            elif self.config.model_family == "waifu":
+                with torch.amp.autocast(device_type=self.accelerator.device.type):
+                    model_pred = self.transformer(
+                        noisy_latents,
+                        encoder_hidden_states=encoder_hidden_states,
+                        encoder_attention_mask=batch["encoder_attention_mask"],
+                        timestep=timesteps,
+                        added_cond_kwargs={"resolution": None, "aspect_ratio": None},
+                        return_dict=False,
+                    )[0]
             elif self.config.model_family == "pixart_sigma":
                 if noisy_latents.shape[1] != 4:
                     raise ValueError(

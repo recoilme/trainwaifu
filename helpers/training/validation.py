@@ -627,6 +627,10 @@ class Validation:
             from diffusers import SanaPipeline
 
             return SanaPipeline
+        elif model_type == "waifu":
+            from diffusers import SanaPipeline
+
+            return SanaPipeline
         else:
             raise NotImplementedError(
                 f"Model type {model_type} not implemented for validation."

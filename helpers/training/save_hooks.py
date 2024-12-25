@@ -169,6 +169,11 @@ class SaveHookManager:
 
                 self.denoiser_class = SanaTransformer2DModel
                 self.pipeline_class = SanaPipeline
+            elif args.model_family == "waifu":
+                from diffusers import SanaPipeline, SanaTransformer2DModel
+
+                self.denoiser_class = SanaTransformer2DModel
+                self.pipeline_class = SanaPipeline
             self.denoiser_subdir = "transformer"
 
         if args.controlnet:
