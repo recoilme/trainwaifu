@@ -255,7 +255,7 @@ def load_tes(
         text_encoder_1 = AutoModel.from_pretrained(text_encoder_model_path, torch_dtype=torch.bfloat16, trust_remote_code=True)
         del text_encoder_1.vision_model
         text_encoder_variant = "bf16"
-        return text_encoder_variant, text_encoder_1, None, None
+        return text_encoder_variant, text_encoder_1.text_model, None, None
 
     if tokenizer_1 is not None and not args.model_family == "smoldit":
         if args.model_family.lower() == "pixart_sigma":
